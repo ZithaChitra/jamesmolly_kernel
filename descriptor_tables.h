@@ -12,3 +12,17 @@ struct gdt_entry_struct
 } __attribute__((packed));
 
 typedef struct gdt_entry_struct gdt_entry_t;
+
+
+// To tell the processor where to find our GDT, we give it the address of a special pointer structure
+struct gdt_ptr_struct
+{
+    uint16_t    limit;          // size of table minus one ( the last valid address in the table )
+    uint32_t    base;           // the address of the first gdt_entry_t struct
+}__attribute__((packed)); 
+typedef struct gdt_ptr_struct gdt_ptr_t;
+
+
+
+void init_descriptor_tables();
+
