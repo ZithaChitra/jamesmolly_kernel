@@ -1,3 +1,5 @@
+#pragma once
+
 #include "stdint.h"
 
 // this structure contains the value of one GDT entry.
